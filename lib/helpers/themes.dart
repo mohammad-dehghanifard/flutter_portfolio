@@ -23,6 +23,11 @@ class AppThemes {
             fontWeight: FontWeight.w700,
             color: const Color(0xFFFF5F00),
         ),
+        titleMedium: TextStyle(
+            fontSize: Responsive.isMobile(context) || Responsive.isMobile(context) ? size.height * 0.02 : size.width * 0.01,
+            fontWeight: FontWeight.w700,
+            color: const Color(0xFFFF5F00),
+        ),
         bodyMedium: TextStyle(
           fontSize: Responsive.isMobile(context) || Responsive.isMobile(context) ? size.height / 64 : size.width / 90,
           color: const Color(0xFF002379),

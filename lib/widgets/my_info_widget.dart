@@ -47,12 +47,9 @@ class MyInfoWidget extends StatelessWidget {
           // content
           SizedBox(
             width: Responsive.isMobile(context)? double.infinity :MediaQuery.sizeOf(context).width * 0.50,
-            child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: Responsive.isMobile(context) ? 25 : 0),
-              child: const Text(
-                  textAlign: TextAlign.justify,
-                  "حرفه من طراحی اپلیکیشن شماست به گونه ای که علاوه بر امکانات فنی حرفه ای دارای یک ظاهر جذاب و کاربرپسند نیز باشد.من با بررسی نیازهای شما تلاش می کنم تا آنها را به شکل خیره کننده به کاربر ارائه دهم و هدف من ایجاد یک هویت بصری جذاب برای برند شما می باشد.در طول فعالیت چندین ساله با شرکت ها و برندهای معتبری همکاری داشتم"),
-            ),
+            child: const Text(
+                textAlign: TextAlign.justify,
+                "حرفه من طراحی اپلیکیشن شماست به گونه ای که علاوه بر امکانات فنی حرفه ای دارای یک ظاهر جذاب و کاربرپسند نیز باشد.من با بررسی نیازهای شما تلاش می کنم تا آنها را به شکل خیره کننده به کاربر ارائه دهم و هدف من ایجاد یک هویت بصری جذاب برای برند شما می باشد.در طول فعالیت چندین ساله با شرکت ها و برندهای معتبری همکاری داشتم"),
           ),
           SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
           Row(
