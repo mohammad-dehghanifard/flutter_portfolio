@@ -1,17 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/helpers/responsive.dart';
+import 'package:flutter_portfolio/widgets/web_navigation_item_widget.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final webNavItem = [
+      WebAppNavigationItem(text: "صفحه اصلی",onTap: () {}),
+      WebAppNavigationItem(text: "نمونه کار ها",onTap: () {}),
+      WebAppNavigationItem(text: "تعرفه همکاری",onTap: () {}),
+      WebAppNavigationItem(text: "وبلاگ",onTap: () {}),
+      WebAppNavigationItem(text: "نظرات مشتریان",onTap: () {}),
+      WebAppNavigationItem(text: "تماس با من",onTap: () {}),
+    ];
     return Responsive(
         desktop: Scaffold(
-          body: Column(
-
+          drawer: Responsive.isMobile(context) ? const Drawer() : null,
+          appBar: Responsive.isMobile(context) ? AppBar() : null,
+          body: AnimatedPadding(
+            duration: const Duration(milliseconds: 300),
+            padding: EdgeInsets.all(MediaQuery.sizeOf(context).width * 0.01),
+            child: Column(
+                children: [
+                  // web navigation
+                  if(Responsive.isDesktop(context))
+                    Row(
+                      children: List.generate(webNavItem.length, (index) => WebAppNavigationItem(
+                          text: webNavItem[index].text,
+                          onTap: webNavItem[index].onTap)
+                      ),
+                    )
+                ],
+            ),
           ),
         )
     );
   }
 }
+
