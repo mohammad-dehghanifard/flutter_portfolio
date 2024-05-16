@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/helpers/responsive.dart';
+import 'package:flutter_portfolio/widgets/main_content_web_widget.dart';
 import 'package:flutter_portfolio/widgets/web_navigation_item_widget.dart';
 
 class MainPage extends StatelessWidget {
@@ -22,17 +23,23 @@ class MainPage extends StatelessWidget {
           body: AnimatedPadding(
             duration: const Duration(milliseconds: 300),
             padding: EdgeInsets.all(MediaQuery.sizeOf(context).width * 0.01),
-            child: Column(
-                children: [
-                  // web navigation
-                  if(Responsive.isDesktop(context))
-                    Row(
-                      children: List.generate(webNavItem.length, (index) => WebAppNavigationItem(
-                          text: webNavItem[index].text,
-                          onTap: webNavItem[index].onTap)
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // web navigation
+                    if(Responsive.isDesktop(context))
+                      Row(
+                        children: List.generate(webNavItem.length, (index) => WebAppNavigationItem(
+                            text: webNavItem[index].text,
+                            onTap: webNavItem[index].onTap)
+                        ),
                       ),
-                    )
-                ],
+                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.065),
+                    // main content
+                    const MainContentWidget()
+                  ],
+              ),
             ),
           ),
         )
