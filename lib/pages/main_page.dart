@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/helpers/responsive.dart';
-import 'package:flutter_portfolio/widgets/main_content_web_widget.dart';
+import 'package:flutter_portfolio/widgets/my_info_widget.dart';
 import 'package:flutter_portfolio/widgets/web_navigation_item_widget.dart';
 
 class MainPage extends StatelessWidget {
@@ -37,7 +37,7 @@ class MainPage extends StatelessWidget {
                       ),
                     SizedBox(height: MediaQuery.sizeOf(context).height * 0.065),
                     // main content
-                    const MainContentWidget()
+                    const MyInfoWidget()
                   ],
               ),
             ),

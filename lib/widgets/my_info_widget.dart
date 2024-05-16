@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/helpers/responsive.dart';
 import 'package:flutter_portfolio/widgets/app_button_widget.dart';
 
-class MainContentWidget extends StatelessWidget {
-  const MainContentWidget({super.key});
+class MyInfoWidget extends StatelessWidget {
+  const MyInfoWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
     final List<Widget> content = [
       AnimatedPadding(
         duration: const Duration(milliseconds: 500),
@@ -35,21 +36,23 @@ class MainContentWidget extends StatelessWidget {
       ),
 
       Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: Responsive.isMobile(context) ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // title
-          Text("سلام دوست من! من محمد دهقانی فرد هستم،",style: TextStyle(
-              fontSize: MediaQuery.sizeOf(context).width * 0.02,fontWeight: FontWeight.w700,color: Theme.of(context).colorScheme.primaryContainer
-          ),),
-          Text("برنامه نویس فلاتر و اندروید.",style: TextStyle(
-              fontSize: MediaQuery.sizeOf(context).width * 0.02,fontWeight: FontWeight.w700,color: Theme.of(context).colorScheme.primaryContainer
-          ),),
+          Text("سلام دوست من! من محمد دهقانی فرد هستم،",style: textTheme.titleLarge),
+          SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
+          Text("برنامه نویس فلاتر و اندروید.",style:  textTheme.titleLarge),
           SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
           // content
           SizedBox(
-            width:MediaQuery.sizeOf(context).width * 0.50,
-            child: const Text("حرفه من طراحی اپلیکیشن شماست به گونه ای که علاوه بر امکانات فنی حرفه ای دارای یک ظاهر جذاب و کاربرپسند نیز باشد.من با بررسی نیازهای شما تلاش می کنم تا آنها را به شکل خیره کننده به کاربر ارائه دهم و هدف من ایجاد یک هویت بصری جذاب برای برند شما می باشد.در طول فعالیت چندین ساله با شرکت ها و برندهای معتبری همکاری داشتم"),
+            width: Responsive.isMobile(context)? double.infinity :MediaQuery.sizeOf(context).width * 0.50,
+            child: Padding(
+              padding:  EdgeInsets.symmetric(horizontal: Responsive.isMobile(context) ? 25 : 0),
+              child: const Text(
+                  textAlign: TextAlign.justify,
+                  "حرفه من طراحی اپلیکیشن شماست به گونه ای که علاوه بر امکانات فنی حرفه ای دارای یک ظاهر جذاب و کاربرپسند نیز باشد.من با بررسی نیازهای شما تلاش می کنم تا آنها را به شکل خیره کننده به کاربر ارائه دهم و هدف من ایجاد یک هویت بصری جذاب برای برند شما می باشد.در طول فعالیت چندین ساله با شرکت ها و برندهای معتبری همکاری داشتم"),
+            ),
           ),
           SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
           Row(
